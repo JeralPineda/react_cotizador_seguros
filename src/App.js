@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import Formulario from './components/Formulario';
+
 import Header from './components/Header';
 
 const Contenedor = styled.div`
@@ -17,7 +19,9 @@ function App() {
       <Contenedor>
          <Header titulo='Cotizador de Seguros' />
 
-         <ContenedorFormulario></ContenedorFormulario>
+         <ContenedorFormulario>
+            <Formulario />
+         </ContenedorFormulario>
       </Contenedor>
    );
 }
