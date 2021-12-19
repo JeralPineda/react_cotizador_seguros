@@ -42,12 +42,23 @@ const Button = styled.button`
    }
 `;
 
+const Error = styled.div`
+   background-color: rgb(255, 186, 186);
+   color: red;
+   padding: 1rem;
+   width: 100%;
+   text-align: center;
+   margin-bottom: 2rem;
+`;
+
 const Formulario = () => {
    const [datos, setDatos] = useState({
       marca: '',
       year: '',
       plan: '',
    });
+
+   const [error, setError] = useState(false);
 
    // Extraer los valores del state
    const { marca, year, plan } = datos;
@@ -60,8 +71,31 @@ const Formulario = () => {
       });
    };
 
+   const handleSubmit = (e) => {
+      e.preventDefault();
+
+      if (marca.trim() === '' || year.trim() === '' || plan.trim() === '') {
+         setError(true);
+         return;
+      }
+
+      setError(false);
+
+      // Obtener la diferencia de años
+
+      // Por cada año hay que restar el 3%
+
+      //   Americano 15%, Asiatico 5%, Europeo 30%
+
+      // Basico ++20%, Completo 50%
+
+      // Total
+   };
+
    return (
-      <form>
+      <form onSubmit={handleSubmit}>
+         {error ? <Error>Todos los campos son obligatorios</Error> : null}
+
          <Campo>
             <Label>Marca</Label>
             <Select
@@ -121,7 +155,7 @@ const Formulario = () => {
             Completo
          </Campo>
 
-         <Button type='button'>Cotizar</Button>
+         <Button type='submit'>Cotizar</Button>
       </form>
    );
 };
