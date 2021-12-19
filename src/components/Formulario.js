@@ -24,6 +24,24 @@ const InputRadio = styled.input`
    margin: 0 1rem;
 `;
 
+const Button = styled.button`
+   background-color: #00838f;
+   border: none;
+   color: #fff;
+   font-size: 16px;
+   font-weight: bold;
+   margin-top: 2rem;
+   padding: 1rem;
+   text-transform: uppercase;
+   width: 100%;
+   transition: background-color 0.3s ease;
+
+   &:hover {
+      background-color: #26c6da;
+      cursor: pointer;
+   }
+`;
+
 const Formulario = () => {
    return (
       <form>
@@ -72,7 +90,7 @@ const Formulario = () => {
             Completo
          </Campo>
 
-         <button type='button'>Cotizar</button>
+         <Button type='button'>Cotizar</Button>
       </form>
    );
 };
