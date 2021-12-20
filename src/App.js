@@ -2,8 +2,8 @@ import { useState } from 'react';
 import styled from '@emotion/styled';
 
 import Formulario from './components/Formulario';
-
 import Header from './components/Header';
+import Spiner from './components/Spiner';
 import Resumen from './components/Resumen';
 import Resultado from './components/Resultado';
 
@@ -27,6 +27,8 @@ function App() {
       },
    });
 
+   const [cargando, setCargando] = useState(false);
+
    // Extraer datos
    const { cotizacion, datos } = resumen;
 
@@ -35,11 +37,17 @@ function App() {
          <Header titulo='Cotizador de Seguros' />
 
          <ContenedorFormulario>
-            <Formulario setResumen={setResumen} />
+            <Formulario
+               //
+               setResumen={setResumen}
+               setCargando={setCargando}
+            />
+
+            {cargando ? <Spiner /> : null}
 
             <Resumen datos={datos} />
 
-            <Resultado cotizacion={cotizacion} />
+            {!cargando ? <Resultado cotizacion={cotizacion} /> : null}
          </ContenedorFormulario>
       </Contenedor>
    );
