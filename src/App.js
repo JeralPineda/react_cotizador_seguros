@@ -5,6 +5,7 @@ import Formulario from './components/Formulario';
 
 import Header from './components/Header';
 import Resumen from './components/Resumen';
+import Resultado from './components/Resultado';
 
 const Contenedor = styled.div`
    max-width: 600px;
@@ -27,7 +28,7 @@ function App() {
    });
 
    // Extraer datos
-   const { datos } = resumen;
+   const { cotizacion, datos } = resumen;
 
    return (
       <Contenedor>
@@ -37,6 +38,8 @@ function App() {
             <Formulario setResumen={setResumen} />
 
             <Resumen datos={datos} />
+
+            <Resultado cotizacion={cotizacion} />
          </ContenedorFormulario>
       </Contenedor>
    );
