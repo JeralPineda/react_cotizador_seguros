@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 
-import { calcuarMarca, obtenerDiferenciaYear, obtenerPlan } from '../helper';
+import { calcuarMarca, obtenerDiferenciaYear } from '../helper';
 
 // Styled Components
 const Campo = styled.div`
@@ -97,8 +97,6 @@ const Formulario = ({ setResumen }) => {
       resultado = calcuarMarca(marca) * resultado;
 
       // Basico ++20%, Completo 50%
-      const incrementoPlan = obtenerPlan(plan);
-      resultado = parseFloat(incrementoPlan * resultado).toFixed(2);
 
       // Total
       setResumen({
