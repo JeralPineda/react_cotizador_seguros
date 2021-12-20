@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
@@ -41,11 +42,17 @@ const Resultado = ({ cotizacion }) => {
                key={cotizacion}
                timeout={{ enter: 500, exit: 500 }}
             >
-               <Total>El total es: $ {cotizacion}</Total>
+               <Total>
+                  El total es: $ <span>{cotizacion}</span>
+               </Total>
             </CSSTransition>
          </TransitionGroup>
       </ResultadoCotizacion>
    );
+};
+
+Resultado.propTypes = {
+   cotizacion: PropTypes.number.isRequired,
 };
 
 export default Resultado;
